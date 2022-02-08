@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.ihamidi.tipcalculator.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:name="com.ihamidi.tipcalculator.TipCalculatorMain"
+        android:label="@string/titleScreenBar"
         tools:layout="@layout/fragment_first">
 
         <action
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.ihamidi.tipcalculator.SecondFragment"
+        android:name="com.ihamidi.tipcalculator.TipCalculatorResult"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_second">
 
