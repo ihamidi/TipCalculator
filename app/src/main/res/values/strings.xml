@@ -4,11 +4,15 @@
     <!-- Strings used for fragments for navigation -->
     <string name="titleScreenBar">Total Entry</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="next">Calculate</string>
+    <string name="previous">Recaluclate</string>
 
     <string name="title_screen_tip_calculator">Tip Calculator</string>
     <string name="tipEntryBox">Enter Pre-tax total</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="preTaxAmount">Pre-Tax Amount</string>
+    <string name="tipCaption">A simple tip Calculator</string>
+    <string name="includeTax">Include tax in tip calculation</string>
+    <string name="roundToDollar">Round up to nearest dollar</string>
+    <string name="gratuityIncluded">Gratuity already included</string>
 </resources>
