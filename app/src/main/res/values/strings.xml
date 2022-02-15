@@ -4,7 +4,7 @@
     <!-- Strings used for fragments for navigation -->
     <string name="titleScreenBar">Total Entry</string>
     <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Calculate</string>
+    <string name="calculate">Calculate</string>
     <string name="previous">Recaluclate</string>
 
     <string name="title_screen_tip_calculator">Tip Calculator</string>

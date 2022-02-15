@@ -6,6 +6,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.text.InputFilter;
+import android.text.Spanned;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -17,8 +19,13 @@ import com.ihamidi.tipcalculator.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class MainActivity extends AppCompatActivity implements CalculateTip {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
@@ -32,17 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
 
+        EditText etText = findViewById(R.id.enterPreTaxTotal);
+        etText.setFilters(new InputFilter[]{new DecimalDigitsInputFilter(5, 2)});
+
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override
@@ -72,5 +74,41 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public double getPreTaxTotal() {
+        EditText preTaxTotal = findViewById(R.id.enterPreTaxTotal);
+        if (Double.parseDouble(preTaxTotal.getText().toString()) > 0)
+            return Double.parseDouble(preTaxTotal.getText().toString());
+        return 0;
+    }
+
+    @Override
+    public boolean includeTax() {
+        return false;
+    }
+
+    @Override
+    public boolean roundUp() {
+        return false;
+    }
+
+    @Override
+    public boolean gratuityIncluded() {
+        return false;
+    }
+}
+class DecimalDigitsInputFilter implements InputFilter {
+    private Pattern mPattern;
+    DecimalDigitsInputFilter(int digitsBeforeZero, int digitsAfterZero) {
+        mPattern = Pattern.compile("[0-9]{0," + (digitsBeforeZero - 1) + "}+((\\.[0-9]{0," + (digitsAfterZero - 1) + "})?)||(\\.)?");
+    }
+    @Override
+    public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend) {
+        Matcher matcher = mPattern.matcher(dest);
+        if (!matcher.matches())
+            return "";
+        return null;
     }
 }
