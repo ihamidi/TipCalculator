@@ -9,11 +9,11 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.ihamidi.tipcalculator.databinding.FragmentSecondBinding;
+import com.ihamidi.tipcalculator.databinding.CalculatedtipscreenBinding;
 
 public class TipCalculatorResult extends Fragment {
 
-    private FragmentSecondBinding binding;
+    private CalculatedtipscreenBinding binding;
 
     @Override
     public View onCreateView(
@@ -21,7 +21,7 @@ public class TipCalculatorResult extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = CalculatedtipscreenBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
