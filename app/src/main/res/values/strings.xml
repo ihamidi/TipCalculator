@@ -15,4 +15,12 @@
     <string name="includeTax">Include tax in tip calculation</string>
     <string name="roundToDollar">Round up to nearest dollar</string>
     <string name="gratuityIncluded">Gratuity already included</string>
+    <string name="informationButton">Information</string>
+    <string name="howMuchToTip">Here\'s how much you should tip:</string>
+    <string name="happy">happy</string>
+    <string name="neutral">neutral</string>
+    <string name="okay">okay</string>
+    <string name="highPercent">Great Tip: </string>
+    <string name="mediumPercent">Good Tip: </string>
+    <string name="lowPercent">Okay Tip: </string>
 </resources>

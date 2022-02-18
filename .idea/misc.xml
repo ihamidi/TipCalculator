@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Izhak Hamidi/AndroidStudioProjects/TipCalculator/app/src/main/res/layout/activity_main.xml" value="0.14709569577935647" />
+        <entry key="..\:/Users/Izhak Hamidi/AndroidStudioProjects/TipCalculator/app/src/main/res/layout/calculatedtipscreen.xml" value="0.5" />
         <entry key="..\:/Users/Izhak Hamidi/AndroidStudioProjects/TipCalculator/app/src/main/res/layout/content_main.xml" value="0.14709569577935647" />
         <entry key="..\:/Users/Izhak Hamidi/AndroidStudioProjects/TipCalculator/app/src/main/res/layout/fragment_first.xml" value="0.5" />
+        <entry key="..\:/Users/Izhak Hamidi/AndroidStudioProjects/TipCalculator/app/src/main/res/layout/totalentry.xml" value="0.1611799914493373" />
       </map>
     </option>
   </component>

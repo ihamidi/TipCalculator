@@ -1,26 +1,21 @@
 package com.ihamidi.tipcalculator;
 
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.ihamidi.tipcalculator.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -40,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements CalculateTip {
         setSupportActionBar(binding.toolbar);
 
         EditText etText = findViewById(R.id.enterPreTaxTotal);
+//        etText.setText(""+0.00);
         etText.setFilters(new InputFilter[]{new DecimalDigitsInputFilter(5, 2)});
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
