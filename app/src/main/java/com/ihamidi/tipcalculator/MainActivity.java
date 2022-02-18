@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -35,12 +36,13 @@ public class MainActivity extends AppCompatActivity implements CalculateTip {
         setSupportActionBar(binding.toolbar);
 
         EditText etText = findViewById(R.id.enterPreTaxTotal);
-//        etText.setText(""+0.00);
         etText.setFilters(new InputFilter[]{new DecimalDigitsInputFilter(5, 2)});
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
+
 
         binding.info.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,6 +103,38 @@ public class MainActivity extends AppCompatActivity implements CalculateTip {
     @Override
     public boolean gratuityIncluded() {
         return false;
+    }
+
+    @Override
+    public double calculateGoodTip(double preTaxAmt) {
+        return preTaxAmt * 0.15;
+    }
+
+    @Override
+    public double calculateGreatTip(double preTaxAmt) {
+        return preTaxAmt * 0.2;
+    }
+
+    @Override
+    public double calculateOkayTip(double preTaxAmt) {
+        return preTaxAmt * 0.1;
+    }
+
+    @Override
+    public void setTip(TextView tipText,String tipAmt) {
+        tipText.append(tipAmt);
+    }
+
+    @Override
+    public void setGreatTip(String tipAmt) {
+        TextView greatTipText = findViewById(R.id.greatTipText);
+        greatTipText.append(tipAmt);
+    }
+
+    @Override
+    public void setOkayTip(String tipAmt) {
+        TextView okayTipText = findViewById(R.id.okayTipText);
+        okayTipText.append(tipAmt);
     }
 }
 class DecimalDigitsInputFilter implements InputFilter {

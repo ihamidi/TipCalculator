@@ -30,15 +30,18 @@ public class TipCalculatorMain extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                double preTaxAmount = calculateTip.getPreTaxTotal();
-                Toast notifyUserOfAmount = Toast.makeText(getContext(),"Calculating tip for: "+preTaxAmount, Toast.LENGTH_LONG);
-                notifyUserOfAmount.show();
-                NavHostFragment.findNavController(TipCalculatorMain.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
+        binding.buttonFirst.setOnClickListener(view1 -> {
+            double preTaxAmount = calculateTip.getPreTaxTotal();
+
+            Toast notifyUserOfAmount = Toast.makeText(getContext(),"Calculating tip for: "+preTaxAmount, Toast.LENGTH_LONG);
+            notifyUserOfAmount.show();
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            NavHostFragment.findNavController(TipCalculatorMain.this)
+                    .navigate(R.id.action_FirstFragment_to_SecondFragment);
         });
     }
 
