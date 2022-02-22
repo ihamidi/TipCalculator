@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textview_first" />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch1"
+        android:id="@+id/includetax"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="157dp"
@@ -67,24 +67,25 @@
         android:layout_marginEnd="158dp"
         android:layout_marginBottom="8dp"
         android:text="@string/includeTax"
-        app:layout_constraintBottom_toTopOf="@+id/switch3"
+        app:layout_constraintBottom_toTopOf="@+id/roundUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/enterPreTaxTotal" />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch2"
+        android:id="@+id/gratIncluded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="7dp"
         android:text="@string/gratuityIncluded"
         app:layout_constraintBottom_toTopOf="@+id/button_first"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch3" />
+        app:layout_constraintTop_toBottomOf="@id/includetax" />
 
     <androidx.appcompat.widget.SwitchCompat
-        android:id="@+id/switch3"
+        android:id="@+id/roundUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="157dp"
@@ -92,11 +93,11 @@
         android:layout_marginEnd="158dp"
         android:layout_marginBottom="7dp"
         android:text="@string/roundToDollar"
-        app:layout_constraintBottom_toTopOf="@+id/switch2"
+        app:layout_constraintBottom_toTopOf="@+id/gratIncluded"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        app:layout_constraintTop_toBottomOf="@+id/includetax" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

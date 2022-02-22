@@ -7,9 +7,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -92,32 +94,56 @@ public class MainActivity extends AppCompatActivity implements CalculateTip {
 
     @Override
     public boolean includeTax() {
-        return false;
+        SwitchCompat includeTax = findViewById(R.id.includetax);
+        return includeTax.isChecked();
     }
 
     @Override
     public boolean roundUp() {
-        return false;
+        SwitchCompat roundUp = findViewById(R.id.roundUp);
+        return roundUp.isChecked();
     }
 
     @Override
     public boolean gratuityIncluded() {
-        return false;
+        SwitchCompat gratIncluded = findViewById(R.id.gratIncluded);
+        return gratIncluded.isChecked();
     }
 
     @Override
     public double calculateGoodTip(double preTaxAmt) {
-        return preTaxAmt * 0.15;
+        double tipRate = 0.15;
+        /*Implement location based tax later*/
+//        if(includeTax())
+//            preTaxAmt
+        if(gratuityIncluded())
+            tipRate/=2;
+
+        if(roundUp())
+            return Math.ceil(preTaxAmt * tipRate);
+        return preTaxAmt * tipRate;
     }
 
     @Override
     public double calculateGreatTip(double preTaxAmt) {
-        return preTaxAmt * 0.2;
+        double tipRate = 0.2;
+        if(gratuityIncluded())
+            tipRate/=2;
+
+        if(roundUp())
+            return Math.ceil(preTaxAmt * tipRate);
+        return preTaxAmt * tipRate;
     }
 
     @Override
     public double calculateOkayTip(double preTaxAmt) {
-        return preTaxAmt * 0.1;
+        double tipRate = 0.1;
+        if(gratuityIncluded())
+            tipRate/=2;
+
+        if(roundUp())
+            return Math.floor(preTaxAmt * tipRate);
+        return preTaxAmt * tipRate;
     }
 
     @Override

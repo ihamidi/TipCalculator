@@ -9,7 +9,7 @@
         android:id="@+id/FirstFragment"
         android:name="com.ihamidi.tipcalculator.TipCalculatorMain"
         android:label="@string/titleScreenBar"
-        tools:layout="@layout/totalEntry">
+        tools:layout="@layout/totalentry">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.ihamidi.tipcalculator.TipCalculatorResult"
-        android:label="@string/second_fragment_label"
+        android:label="@string/tipresult"
         tools:layout="@layout/calculatedtipscreen">
 
         <action
